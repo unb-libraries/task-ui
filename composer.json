@@ -1,13 +1,18 @@
 {
-    "name": "task_ui",
+    "name": "unb-libraries/task-ui",
     "type": "drupal-module",
-    "description": "Schedule and execute automated tasks.",
+    "description": "Provides UI for simple cron task scheduling.",
+    "authors": [
+        {
+            "name": "Patrick Schilf",
+            "email": "patrick.schilf@unb.ca"
+        },
+        {
+            "name": "UNB Libraries",
+            "email": "libsupport@unb.ca"
+        }
+    ],
     "keywords": [
     ],
-    "homepage": "https://www.drupal.org/project/task_ui",
-    "minimum-stability": "dev",
-    "support": {
-        "issues": "https://www.drupal.org/project/issues/task_ui",
-        "source": "http://cgit.drupalcode.org/task_ui"
-    }
+    "minimum-stability": "dev"
 }
