@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * Contains task_ui.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function task_ui_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the task_ui module.
+    case 'help.page.task_ui':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Schedule and execute automated tasks.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_cron().
+ */
+function task_ui_cron() {
+  $tasks = \Drupal::entityTypeManager()->getStorage('task')->loadMultiple();
+  foreach ($tasks as $task) {
+    /** @var \Drupal\task_ui\Entity\Task $task */
+    if ($task->isDue()) {
+      $task->queue();
+    }
+  }
+}

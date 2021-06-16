@@ -1,0 +1,20 @@
+administer tasks:
+  title: 'Administer Tasks'
+
+create task entities:
+  title: 'Create Tasks'
+
+view task entities:
+  title: 'View Tasks'
+
+edit task entities:
+  title: 'Edit Tasks'
+
+delete task entities:
+  title: 'Delete Tasks'
+
+execute task entities:
+  title: 'Execute Tasks'
+
+toggle task entities:
+  title: 'Enable/Disable Tasks'

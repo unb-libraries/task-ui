@@ -1,0 +1,22 @@
+task_ui.task.*:
+  type: config_entity
+  label: 'Task config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    name:
+      type: label
+      label: 'Name'
+    worker_id:
+      type: string
+      label: 'Worker'
+    params:
+      type: mapping
+      label: 'Parameters'
+    interval:
+      type: integer
+      label: 'Interval'
+    first_exec:
+      type: integer
+      label: 'First Execution'

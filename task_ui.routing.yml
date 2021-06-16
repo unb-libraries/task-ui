@@ -1,0 +1,64 @@
+entity.task.collection:
+  path: '/admin/config/system/tasks'
+  defaults:
+    _entity_list: 'task'
+    _title: 'Tasks'
+  requirements:
+    _permission: 'view task entities'
+
+entity.task.add_form:
+  path: '/admin/config/system/tasks/create'
+  defaults:
+    _entity_form: 'task.add'
+    _title: 'Create Task'
+  requirements:
+    _permission: 'create task entities'
+
+entity.task.edit_form:
+  path: '/admin/config/system/tasks/{task}/edit'
+  defaults:
+    _entity_form: 'task.edit'
+    _title: 'Edit Task'
+  requirements:
+    _permission: 'edit task entities'
+
+entity.task.delete_form:
+  path: '/admin/config/system/tasks/{task}/delete'
+  defaults:
+    _entity_form: 'task.delete'
+    _title: 'Delete Task'
+  requirements:
+    _permission: 'delete task entities'
+
+entity.task.run:
+  path: '/admin/config/system/tasks/{task}/run'
+  defaults:
+    _controller: 'Drupal\task_ui\Controller\TaskController::run'
+  options:
+    parameters:
+      task:
+        type: entity:task
+  requirements:
+    _permission: 'execute task entities'
+
+entity.task.enable:
+  path: '/admin/config/system/tasks/{task}/enable'
+  defaults:
+    _controller: 'Drupal\task_ui\Controller\TaskController::enable'
+  options:
+    parameters:
+      task:
+        type: entity:task
+  requirements:
+    _permission: 'toggle task entities'
+
+entity.task.disable:
+  path: '/admin/config/system/tasks/{task}/disable'
+  defaults:
+    _controller: 'Drupal\task_ui\Controller\TaskController::disable'
+  options:
+    parameters:
+      task:
+        type: entity:task
+  requirements:
+    _permission: 'toggle task entities'

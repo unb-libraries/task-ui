@@ -1,0 +1,13 @@
+{
+    "name": "task_ui",
+    "type": "drupal-module",
+    "description": "Schedule and execute automated tasks.",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/task_ui",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/task_ui",
+        "source": "http://cgit.drupalcode.org/task_ui"
+    }
+}
