@@ -11,6 +11,7 @@ use Drupal\intranet_core\Logger\IntranetLoggerTrait;
 use Drupal\task_ui\Entity\Storage\TaskStorageInterface;
 use Drupal\task_ui\Event\TaskCompletedEvent;
 use Drupal\task_ui\Exception\TaskException;
+use Drupal\task_ui\Log\LoggerTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
@@ -22,7 +23,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 abstract class TaskQueueWorkerBase extends QueueWorkerBase implements TaskQueueWorkerInterface, ContainerFactoryPluginInterface {
 
   use StringTranslationTrait;
-  use IntranetLoggerTrait;
+  use LoggerTrait;
 
   /**
    * The task storage handler.
