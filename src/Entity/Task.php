@@ -122,7 +122,7 @@ class Task extends ConfigEntityBase {
   /**
    * {@inheritDoc}
    */
-  public function __construct(array $values, $entity_type, QueueInterface $queue, TaskQueueWorkerInterface $worker) {
+  public function __construct(array $values, $entity_type, QueueInterface $queue = NULL, TaskQueueWorkerInterface $worker = NULL) {
     parent::__construct($values, $entity_type);
     $this->state = $this->getState();
     $this->queue = $queue;
