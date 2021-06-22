@@ -12,6 +12,7 @@
             "email": "libsupport@unb.ca"
         }
     ],
+    "license": "MIT",
     "keywords": [
     ],
     "minimum-stability": "dev"
