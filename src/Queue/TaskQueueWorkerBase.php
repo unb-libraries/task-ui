@@ -167,11 +167,10 @@ abstract class TaskQueueWorkerBase extends QueueWorkerBase implements TaskQueueW
       $message = $e->getMessage() . "\n\n" . $e->getTraceAsString();
       $this->notice(sprintf('Task %s finished with an error: %s', $task->id(), $message));
     }
-    finally {
-      return $result;
-    }
+
     $this->eventDispatcher()
       ->dispatch(TaskCompletedEvent::EVENT_NAME, new TaskCompletedEvent($task, $result));
+    return $result;
   }
 
   /**
