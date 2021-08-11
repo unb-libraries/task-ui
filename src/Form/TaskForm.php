@@ -178,9 +178,8 @@ class TaskForm extends EntityForm {
     $form_state->setValue('interval', $interval);
     $form_state->unsetValue('is_recurring');
 
-    $params = [];
     $selected_worker_id = $form_state->getValue('worker_id');
-    if (array_key_exists($selected_worker_id, $form_state->getValue('params'))) {
+    if (($params = $form_state->getValue('params')) && array_key_exists($selected_worker_id, $params)) {
       $params = $form_state->getValue('params')[$selected_worker_id];
     }
     $form_state->unsetValue('params');
