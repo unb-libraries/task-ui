@@ -139,17 +139,23 @@ abstract class TaskQueueWorkerBase extends QueueWorkerBase implements TaskQueueW
     $task = $this->taskStorage()->load($item->taskId);
     $started_at = new DrupalDateTime();
     try {
-      $this->notice(sprintf('Task %s started execution.', $task->id()));
+      $this->notice($this->t('Task @task_id started execution.', [
+        '@task_id' => $task->id(),
+      ]));
       $task->setHasStarted();
       if (!$result = $this->run($item)) {
         $result = new Result([]);
       }
       $task->setHasStopped(TRUE, $started_at->getTimestamp());
       if ($result->successful()) {
-        $this->notice(sprintf('Task %s finished successfully.', $task->id()));
+        $this->notice($this->t('Task @task_id finished successfully.', [
+          '@task_id' => $task->id(),
+        ]));
       }
       else {
-        $this->warning('Task %s finished with errors.', $task->id());
+        $this->warning($this->t('Task @task_id finished with errors.', [
+          '@task_id' => $task->id(),
+        ]));
         foreach ($result->errors() as $error) {
           $this->error($error);
         }
@@ -165,7 +171,10 @@ abstract class TaskQueueWorkerBase extends QueueWorkerBase implements TaskQueueW
       $task->setHasStopped(FALSE, $started_at->getTimestamp());
       $result = new Result([$e->getMessage()]);
       $message = $e->getMessage() . "\n\n" . $e->getTraceAsString();
-      $this->notice(sprintf('Task %s finished with an error: %s', $task->id(), $message));
+      $this->notice($this->t('Task @task_id finished with an error: @message', [
+        '@task_id' => $task->id(),
+        '@message' => $message,
+      ]));
     }
 
     $this->eventDispatcher()
