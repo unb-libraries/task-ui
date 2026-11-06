@@ -33,7 +33,7 @@ trait LoggerTrait {
   /**
    * {@inheritDoc}
    */
-  public function log($level, $message, array $context = []) {
+  public function log($level, string|\Stringable $message, array $context = []): void {
     if ($this->logger()) {
       $this->logger()
         ->log($level, $message, $context);

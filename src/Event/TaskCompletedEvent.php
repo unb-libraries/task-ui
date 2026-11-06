@@ -4,7 +4,7 @@ namespace Drupal\task_ui\Event;
 
 use Drupal\task_ui\Entity\Task;
 use Drupal\task_ui\Queue\ResultInterface;
-use Symfony\Component\EventDispatcher\Event;
+use Drupal\Component\EventDispatcher\Event;
 
 /**
  * Event fired when a TaskUI task starts or finishes.

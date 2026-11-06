@@ -114,7 +114,8 @@ class TaskStorage extends ConfigEntityStorage implements TaskStorageInterface {
       $worker = $this->createWorker($values['worker_id']);
       $queue = $this->getQueue($worker->getPluginId());
     }
-    return new $this->entityClass($values, $this->entityTypeId, $queue, $worker);
+    $class = $this->getEntityClass();
+    return new $class($values, $this->entityTypeId, $queue, $worker);
   }
 
   /**

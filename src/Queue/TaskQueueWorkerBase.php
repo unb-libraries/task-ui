@@ -178,7 +178,7 @@ abstract class TaskQueueWorkerBase extends QueueWorkerBase implements TaskQueueW
     }
 
     $this->eventDispatcher()
-      ->dispatch(TaskCompletedEvent::EVENT_NAME, new TaskCompletedEvent($task, $result));
+      ->dispatch(new TaskCompletedEvent($task, $result), TaskCompletedEvent::EVENT_NAME);
     return $result;
   }
 
