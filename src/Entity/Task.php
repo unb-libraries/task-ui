@@ -41,7 +41,6 @@ use Drupal\task_ui\Queue\TaskState;
  *     "first_exec",
  *   },
  *   links = {
- *     "canonical" = "/admin/config/system/tasks/{task}",
  *     "add-form" = "/admin/config/system/tasks/create",
  *     "edit-form" = "/admin/config/system/tasks/{task}/edit",
  *     "delete-form" = "/admin/config/system/tasks/{task}/delete",
@@ -122,7 +121,7 @@ class Task extends ConfigEntityBase {
   /**
    * {@inheritDoc}
    */
-  public function __construct(array $values, $entity_type, QueueInterface $queue = NULL, TaskQueueWorkerInterface $worker = NULL) {
+  public function __construct(array $values, $entity_type, ?QueueInterface $queue = NULL, ?TaskQueueWorkerInterface $worker = NULL) {
     parent::__construct($values, $entity_type);
     $this->state = $this->getState();
     $this->queue = $queue;

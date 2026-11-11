@@ -75,7 +75,7 @@ abstract class TaskQueueWorkerBase extends QueueWorkerBase implements TaskQueueW
    * @param \Drupal\Core\Logger\LoggerChannelInterface|null $logger
    *   (optional) A logger channel.
    */
-  public function __construct(array $configuration, string $plugin_id, $plugin_definition, TaskStorageInterface $task_storage, EventDispatcherInterface $dispatcher, LoggerChannelInterface $logger = NULL) {
+  public function __construct(array $configuration, string $plugin_id, $plugin_definition, TaskStorageInterface $task_storage, EventDispatcherInterface $dispatcher, ?LoggerChannelInterface $logger = NULL) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->taskStorage = $task_storage;
     $this->dispatcher = $dispatcher;

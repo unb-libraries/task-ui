@@ -72,7 +72,7 @@ class TaskStorage extends ConfigEntityStorage implements TaskStorageInterface {
    * @param \Drupal\Core\Cache\MemoryCache\MemoryCacheInterface|null $memory_cache
    *   The memory cache backend.
    */
-  public function __construct(EntityTypeInterface $entity_type, ConfigFactoryInterface $config_factory, UuidInterface $uuid_service, LanguageManagerInterface $language_manager, QueueFactory $queue_factory, QueueWorkerManagerInterface $queue_worker_manager, MemoryCacheInterface $memory_cache = NULL) {
+  public function __construct(EntityTypeInterface $entity_type, ConfigFactoryInterface $config_factory, UuidInterface $uuid_service, LanguageManagerInterface $language_manager, QueueFactory $queue_factory, QueueWorkerManagerInterface $queue_worker_manager, ?MemoryCacheInterface $memory_cache = NULL) {
     parent::__construct($entity_type, $config_factory, $uuid_service, $language_manager, $memory_cache);
     $this->queueFactory = $queue_factory;
     $this->queueWorkerManager = $queue_worker_manager;
